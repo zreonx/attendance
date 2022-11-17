@@ -5,40 +5,46 @@
 
     $results = $crud->getAttendees();
 ?>
-<table class="table table-bordered mt-3 text-center">
-    <thead>
-      <tr> 
-        <th>#</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Specialty</th>
-        <th>Action</th>
-      </tr>
-      <?php
-        while($r = $results->fetch(PDO::FETCH_ASSOC)){
-      ?>
-         <tr>
-            <td>
-                <?php echo $r['id']; ?>
-                <input type="hidden" value="<?php echo $r['id']; ?>" name="id">
-            </td>
-            <td><?php echo $r['firstname']; ?></td>
-            <td><?php echo $r['lastname']; ?></td>
-            <td><?php echo $r['name']; ?></td>
-            <td>
-                <a href="view.php?id=<?php echo $r['id']; ?>" class="btn btn-success">View</a>
-                <button data-id="<?php echo $r['id']; ?>" type="button" class="btn btn-danger delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-            </td>
+<div class="card overflow-auto mt-3">
+    <div class="card-body">
+        <h1 class="display-6">Attendees</h1>
+        <table class="table table-bordered text-center ">
+        <thead>
+        <tr> 
+            <th>#</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Specialty</th>
+            <th>Action</th>
         </tr>
-      <?php  } ?>
-    </thead>
-    <tbody>
-     
-      
-    </tbody>
+        <?php
+            while($r = $results->fetch(PDO::FETCH_ASSOC)){
+        ?>
+            <tr>
+                <td>
+                    <?php echo $r['id']; ?>
+                    <input type="hidden" value="<?php echo $r['id']; ?>" name="id">
+                </td>
+                <td><?php echo $r['firstname']; ?></td>
+                <td><?php echo $r['lastname']; ?></td>
+                <td><?php echo $r['name']; ?></td>
+                <td>
+                    <a href="view.php?id=<?php echo $r['id']; ?>" class="btn-design btn btn-success">View</a>
+                    <button data-id="<?php echo $r['id']; ?>" type="button" class="btn-design btn btn-danger delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
+                </td>
+            </tr>
+        <?php  } ?>
+        </thead>
+        <tbody>
+        
+        
+        </tbody>
 
 
-  </table>
+    </table>
+    </div>
+</div>
+
   <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
