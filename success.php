@@ -32,7 +32,7 @@
         Email: <?php echo $email ?> <br>
         Contact Number: <?php echo $number ?>
     </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <a href="viewrecords.php" class="btn btn-primary">View Records</a>
   </div>
 </div>
 
