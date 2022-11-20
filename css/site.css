@@ -2,3 +2,23 @@
     width: 5rem;
     margin: 3px 0;
 }
+
+
+.login, .register {
+    width: 500px;
+    padding:  0px 30px 5px 20px;
+    
+}
+
+.view-card {
+    width: 600px;
+    padding: 5px 20px;
+}
+
+.view-card, .login {
+    max-width: 100%;
+}
+
+.profile-image {
+    margin: 10px;
+}

@@ -7,6 +7,8 @@
 ?>
 <div class="card overflow-auto mt-3">
     <div class="card-body">
+
+        </div>
         <h1 class="display-6">Attendees</h1>
         <table class="table table-bordered text-center ">
         <thead>
@@ -45,8 +47,8 @@
     </div>
 </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">

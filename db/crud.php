@@ -49,7 +49,6 @@
                 echo 'Error: ' . $e->getMessage();
            }
             
-
         }
 
         public function updateDetails($id, $fname, $lname, $specialty, $dob, $email, $number) {
@@ -69,7 +68,6 @@
                 echo "Error: " . $e->getMessage();
             }
         }
-
 
         public function getAttendees(){
            try {
@@ -113,8 +111,5 @@
             }
 
         }
-
-        
-
         
     }

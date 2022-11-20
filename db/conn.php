@@ -31,6 +31,10 @@
         //echo "<h1>No Database Found</h1>";
     }
     require_once 'crud.php';
+    require_once 'user.php';
+
+    $account = new User($conn);
     $crud = new crud($conn);
 
+    $account->creaeteUser("zreon","123");
 ?>

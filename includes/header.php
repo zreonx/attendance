@@ -1,3 +1,12 @@
+<?php 
+    include_once 'includes/session.php';
+    header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,23 +29,41 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto">
             <li class="nav-item">
             <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="viewrecords.php">View Attendees</a>
             </li> 
+        </ul>
+        <ul class="navbar-nav">
+            <?php if(isset($_SESSION['user_id'])){
+            ?>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Dropdown</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Link</a></li>
-                <li><a class="dropdown-item" href="#">Another link</a></li>
-                <li><a class="dropdown-item" href="#">A third link</a></li>
-            </ul>
+             <div class="btn-group">
+                <a class="nav-link" href="#" role="button"><?php echo strtoupper($_SESSION['username']); ?></a>
+                <a type="button" class="dropdown-toggle mt-2 logoutbtn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                </a>
+                <ul class="dropdown-menu menu">
+                    <li><a class="dropdown-item menu-item" href="#">Acount</a></li>
+                    <li><a class="dropdown-item menu-item" href="logout.php">Logout</a></li>
+                </ul>
+             </div>
             </li>
+            <?php 
+            }else {
+            ?>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+            </li> 
+            <?php  
+            }
+            ?>
         </ul>
         </div>
+        
     </div>
     </nav>
     <div class="container d-flex flex-column min-vh-100">

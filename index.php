@@ -2,14 +2,11 @@
     $title = "Index";
     require_once 'includes/header.php';
     require_once 'db/conn.php';
-
     $result = $crud->getSpecialty();
 ?>
-
 <h1 class="text-center mt-5 display-5">Registration for IT Conference</h1>
-    
-<div class="card w-75 mx-auto">
-    <div class="card-body">
+<div class="card login mx-auto mt-2"> 
+    <div class="card-body ">
         <form action="success.php" method="post">
             <div class="mb-3">
                 <label for="firstname" class="form-label">First Name</label>
@@ -44,6 +41,5 @@
         </form>
     </div>
 </div>
-
 
 <?php require_once 'includes/footer.php'; ?>

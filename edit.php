@@ -13,10 +13,10 @@
     
 ?>
 
-<h1 class="text-center mt-5 display-5">Edit Record</h1>
     
-<div class="card w-75 mx-auto">
+<div class="card register mx-auto mt-3">
     <div class="card-body">
+        <h1 class="display-6">Edit Profile</h1>
         <form action="editpost.php" method="post">
             <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
             <div class="mb-3">
