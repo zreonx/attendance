@@ -15,13 +15,14 @@
     $dob = $_POST['dob'];
     $email = $_POST['email'];
     $number = $_POST['contact'];
+    $full_name = ucwords($fname . " " . $lname);
    
     $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number);
    
     $specialty_name =  $crud->getSpecialtyById($specialty);
     
     if($isSuccess){
-      SendEmail::SendMail($email, 'Zreon Registration', 'You have been registered to Zreon'); 
+      SendEmail::SendMail($email, 'Zreon Registration', 'You have been registered to Zreon', $full_name); 
       include 'includes/successmessage.php';
 
     }else{

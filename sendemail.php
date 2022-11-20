@@ -10,7 +10,7 @@
     require_once 'vendor/autoload.php';
 
     class SendEmail{
-        public static function SendMail($to, $subject, $content){
+        public static function SendMail($to, $subject, $content, $full_name){
             //Create an instance; passing `true` enables exceptions
             $mail = new PHPMailer(true);
             try {
@@ -27,7 +27,7 @@
                 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
                 //Recipients
-                $mail->setFrom('zreonmailbot@gmail.com', 'Zorenl Dayrit');
+                $mail->setFrom('zreonmailbot@gmail.com', 'Zorenl Rkyle Dayrit (Developer)');
                 //$mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
                 $mail->addAddress($to);               //Name is optional
                // $mail->addCC('cc@example.com');
@@ -40,7 +40,8 @@
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = $subject;
-                $mail->Body    = $content;
+                $mail->Body    =     "<h3>  Hi <i>" . $full_name . "</i></h3>" . "<br>" .
+                                     "<h1>" . $content . "</h1><br>" ;
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 $mail->send();
