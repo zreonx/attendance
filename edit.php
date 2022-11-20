@@ -1,9 +1,7 @@
 <?php
-    $title = "Edit Record";
+    $title = "Edit";
     require_once 'includes/header.php';
-    require_once 'includes/auth_check.php';
     require_once 'db/conn.php';
-
     if(!isset($_GET['id'])){
         include 'includes/errormessage.php';
         header('location: viewrecords.php');
@@ -13,13 +11,11 @@
         $result_specialty = $crud->getSpecialty();
     
 ?>
-
-    
-<div class="card register mx-auto mt-3">
-    <div class="card-body">
-        <h1 class="display-6">Edit Profile</h1>
-        <form action="editpost.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
+<h1 class="text-center mt-5 display-5">Registration for IT Conference</h1>
+<div class="card login mx-auto mt-2"> 
+    <div class="card-body ">
+        <form action="editpost.php.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
             <div class="mb-3">
                 <label for="firstname"  class="form-label">First Name</label>
                 <input type="text" value='<?php echo $result['firstname'] ?>' name="firstname" class="form-control" id="firstname">
@@ -50,11 +46,10 @@
                 <input type="text" value='<?php echo $result['contact'] ?>' name="contact" class="form-control" id="contact">
             </div>
             <button type="submit" name="submit" class="btn btn-dark">Save Changes</button>
-            <a href="viewrecords.php" type="submit" name="submit" class="btn btn-dark">Cancel</a>        
+            <a href="viewrecords.php" type="submit" name="submit" class="btn btn-dark">Cancel</a>   
+            <?php } ?> 
         </form>
     </div>
 </div>
-
-<?php } ?>
 
 <?php require_once 'includes/footer.php'; ?>
