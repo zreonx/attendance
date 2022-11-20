@@ -6,7 +6,7 @@
 
     $results = $crud->getAttendees();
 ?>
-<div class="card overflow-auto mt-3">
+<div class="card overflow-auto mt-3 p-3">
     <div class="card-body">
 
         </div>
