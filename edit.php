@@ -11,9 +11,10 @@
         $result_specialty = $crud->getSpecialty();
     
 ?>
-<h1 class="text-center mt-5 display-5">Registration for IT Conference</h1>
+
 <div class="card login mx-auto mt-2"> 
     <div class="card-body ">
+        <h1 class="display-6">Edit Profile</h1>
         <form action="editpost.php.php" method="post">
         <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
             <div class="mb-3">
