@@ -15,7 +15,7 @@
 <div class="card login mx-auto mt-2"> 
     <div class="card-body ">
         <h1 class="display-6">Edit Profile</h1>
-        <form action="editpost.php.php" method="post">
+        <form action="editpost.php" method="post">
         <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
             <div class="mb-3">
                 <label for="firstname"  class="form-label">First Name</label>
