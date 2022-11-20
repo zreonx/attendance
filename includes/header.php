@@ -42,7 +42,7 @@
             ?>
             <li class="nav-item dropdown">
              <div class="btn-group">
-                <a class="nav-link" href="#" role="button"><?php echo strtoupper($_SESSION['username']); ?></a>
+                <a class="nav-link" href="#" role="button"><?php echo "Welcome " . strtoupper($_SESSION['username']); ?></a>
                 <a type="button" class="dropdown-toggle mt-2 logoutbtn" data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </a>

@@ -1,15 +1,15 @@
 <?php
-    // $server="localhost";
-    // $username = "root";
-    // $pasword= "";
-    // $dbname = "attendance_db";
-    // $charset = 'utf8mb4';
-
-    $server="remotemysql.com";
-    $username = "QZJ0zMiIOB";
-    $pasword= "fXZZoJC7Hp";
-    $dbname = "QZJ0zMiIOB";
+    $server="localhost";
+    $username = "root";
+    $pasword= "";
+    $dbname = "attendance_db";
     $charset = 'utf8mb4';
+
+    // $server="remotemysql.com";
+    // $username = "QZJ0zMiIOB";
+    // $pasword= "fXZZoJC7Hp";
+    // $dbname = "QZJ0zMiIOB";
+    // $charset = 'utf8mb4';
 
     //Data source name
     $dsn = "mysql:host=$server;dbname=$dbname;charset=$charset";
