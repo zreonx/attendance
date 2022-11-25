@@ -16,8 +16,14 @@
     $email = $_POST['email'];
     $number = $_POST['contact'];
     $full_name = ucwords($fname . " " . $lname);
-   
-    $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number);
+
+    $orig_file = $_FILES['avatar']['tmp_name'];
+    $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+    $target_dir = 'images/uploads/';
+    $destination = $target_dir . $number . "." .  $ext;
+    move_uploaded_file($orig_file, $destination);
+
+    $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination);
    
     $specialty_name =  $crud->getSpecialtyById($specialty);
     
@@ -32,6 +38,7 @@
    ?>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
+    <img class="img-thumbnail profile-image" src="<?php echo $destination ?>" alt="profile">
     <h5 class="card-title"><?php echo  $fname . " " .  $lname; ?></h5>
     <h6 class="card-subtitle mb-2 text-muted"><?php echo  $specialty_name['name'] ?></h6>
     <p class="card-text">

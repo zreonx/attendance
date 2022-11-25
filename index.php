@@ -8,7 +8,7 @@
 <h1 class="text-center mt-5 display-5">Registration for IT Conference</h1>
 <div class="card login mx-auto mt-2"> 
     <div class="card-body ">
-        <form action="success.php" method="post">
+        <form action="success.php" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="firstname" class="form-label">First Name</label>
                 <input type="text" required name="firstname" class="form-control" id="firstname">
@@ -37,6 +37,10 @@
             <div class="mb-3">
                 <label for="contact" class="form-label">Contact Number</label>
                 <input type="text" required name="contact" class="form-control" id="contact">
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Upload Image <i>(Optional)</i></label>
+                <input type="file" accept="image/*" name="avatar"  class="form-control" id="avatar">
             </div>
             <button type="submit" name="submit" class="btn btn-dark btn-md btn-block">Register</button>
         </form>

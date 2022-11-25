@@ -22,7 +22,7 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-          <img class="img-thumbnail profile-image" src="images/defaul-profile.png" alt="profile">
+          <img class="img-thumbnail profile-image" src="<?php if(empty($result['avatar_path'])){ echo "images/defaul-profile.png";}else { echo $result['avatar_path'];} ?>" alt="profile">
       </div>
       <div class="col-md-8 align-items-center">
           
