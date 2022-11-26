@@ -5,8 +5,6 @@
     require_once 'sendemail.php';
 ?>
 
-
-
   <?php 
   if(isset($_POST['submit'])){
     $fname = $_POST['firstname'];
@@ -22,22 +20,24 @@
     $target_dir = 'images/uploads/';
     $destination = $target_dir . $number . "." .  $ext;
     move_uploaded_file($orig_file, $destination);
-
-    $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination);
+    
+    
+     $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination);
    
-    $specialty_name =  $crud->getSpecialtyById($specialty);
+     $specialty_name =  $crud->getSpecialtyById($specialty);
     
     if($isSuccess){
-      SendEmail::SendMail($email, 'Zreon Registration', 'You have been registered to Zreon', $full_name); 
+      //SendEmail::SendMail($email, 'Zreon Registration', 'You have been registered to Zreon', $full_name); 
       include 'includes/successmessage.php';
 
     }else{
       include 'includes/errormessage.php';
     }
-  }
+  
    ?>
 <div class="card" style="width: 18rem;">
   <div class="card-body">
+    
     <img class="img-thumbnail profile-image" src="<?php echo $destination ?>" alt="profile">
     <h5 class="card-title"><?php echo  $fname . " " .  $lname; ?></h5>
     <h6 class="card-subtitle mb-2 text-muted"><?php echo  $specialty_name['name'] ?></h6>
@@ -49,6 +49,5 @@
     <a href="viewrecords.php" class="btn btn-primary">View Records</a>
   </div>
 </div>
-
-
+<?php } ?>
 <?php require_once 'includes/footer.php'; ?>
