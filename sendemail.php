@@ -40,8 +40,26 @@
                 //Content
                 $mail->isHTML(true);                                  //Set email format to HTML
                 $mail->Subject = $subject;
-                $mail->Body    =     "<h3>  Hi <i>" . $full_name . "</i></h3>" . "<br>" .
-                                     "<h1>" . $content . "</h1><br>" ;
+                $mail->Body = '
+                <table align="center" width="100%" style="width: 100%;">
+                  <tr>     
+                    <td>&nbsp;</td>
+                    <td align="center" width="600" style="width: 600px;">
+                      <table align="center" border="0" width="100%" style="width: 100%;">
+                        <tr>
+                          <td align="center">
+                            "<h2 style="font-family: Century Gothic; font-size: 25px;">  Hi <i> '. $full_name .'</i></h2>"
+                          </td>
+                          <td>
+                          <p style="font-family: Century Gothic; font-size: 15px;"> '. $content . '<p>"
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                </table>';
+
                 $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
                 $mail->send();

@@ -15,10 +15,14 @@
     padding: 5px 20px;
 }
 
-.view-card, .login {
+.view-card, .login, .attendee {
     max-width: 100%;
 }
 
 .profile-image {
     
+}
+
+.attendee {
+    width: 220px;
 }

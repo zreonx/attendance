@@ -8,7 +8,7 @@
 <h1 class="text-center mt-5 display-5">Registration for IT Conference</h1>
 <div class="card login mx-auto mt-2"> 
     <div class="card-body ">
-        <form action="success.php" id="form" method="post" enctype="multipart/form-data">
+        <form id="form" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="firstname" class="form-label">First Name</label>
                 <input type="text" required name="firstname" class="form-control" id="firstname">
@@ -41,7 +41,6 @@
             <div class="mb-3">
                 <label for="contact" class="form-label">Upload Image <i>(Optional)</i></label>
                 <input type="file" accept="image/*" name="avatar" class="form-control" id="avatar">
-                <input type="hidden" name="submit" value="submit">
             </div>
             <button type="submit" class="btn btn-dark btn-md btn-block">Register</button>
         </form>
@@ -51,7 +50,7 @@
     $(document).ready(function (e) {
     $('#form').on('submit',(function(e) {
         var formData = new FormData(this);
-        formData.append('submit',"submit");
+        var email = $('#email').val();
         $.ajax({
             type: "POST",
             url: 'success.php',
@@ -61,9 +60,8 @@
             processData:false,
 
         success: function(data){
-            alert("Upload Success");
-             //window.location.href= "success.php";
-        }, 
+            alert("Thank you for registering!");
+        },
         error: function(data){
             alert("Upload Error");
         }

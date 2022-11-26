@@ -14,7 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance - <?php echo $title; ?></title>
+
     
+    
+    <link rel="stylesheet" href="css/reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
@@ -35,7 +38,10 @@
             <a class="nav-link" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="viewrecords.php">View Attendees</a>
+            <a class="nav-link" href="attendee.php">Attendee</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="viewrecords.php">Manage Attendees</a>
             </li> 
         </ul>
         <ul class="navbar-nav">

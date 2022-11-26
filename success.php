@@ -6,7 +6,8 @@
 ?>
 
   <?php 
-  if(isset($_POST['submit'])){
+    if(!isset($_GET['register'])) {
+
     $fname = $_POST['firstname'];
     $lname = $_POST['lastname'];
     $specialty = $_POST['specialty'];
@@ -21,30 +22,30 @@
     $destination = $target_dir . $number . "." .  $ext;
     move_uploaded_file($orig_file, $destination);
     
-    
      $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination);
    
      $specialty_name =  $crud->getSpecialtyById($specialty);
-    
-    if($isSuccess){
-      //SendEmail::SendMail($email, 'Zreon Registration', 'You have been registered to Zreon', $full_name); 
+     $email_exit = $crud->checkEmail($email);
+     
+     print_r($email_exist);
+     if($isSuccess){
+      SendEmail::SendMail($email, 'Zreon Registration', 'You have been registered to Zreon', $full_name); 
       include 'includes/successmessage.php';
-
-    }else{
-      include 'includes/errormessage.php';
-    }
-  
-   ?>
+      }
+    }else {
+      
+    ?>
+    
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     
-    <img class="img-thumbnail profile-image" src="<?php echo $destination ?>" alt="profile">
-    <h5 class="card-title"><?php echo  $fname . " " .  $lname; ?></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><?php echo  $specialty_name['name'] ?></h6>
+    <img class="img-thumbnail profile-image" src="<?php if(empty($result['avatar_path'])){ echo "images/default-profile.png";}else { echo $result['avatar_path'];} ?>" alt="profile">
+    <h5 class="card-title"><?php echo  $result['firstname'] . " " . $result['lastname'] ?></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><?php echo  $result['name'] ?></h6>
     <p class="card-text">
-        Date of Birth: <?php echo $dob  ?> <br>
-        Email: <?php echo $email ?> <br>
-        Contact Number: <?php echo $number ?>
+        Date of Birth: <?php echo $result['dateofbirth']  ?> <br>
+        Email: <?php echo $result['email']?> <br>
+        Contact Number: <?php echo $result['contact'] ?>
     </p>
     <a href="viewrecords.php" class="btn btn-primary">View Records</a>
   </div>

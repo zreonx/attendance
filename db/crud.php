@@ -39,9 +39,10 @@
         public function getAttendeeDetails($id){
             try {
 
-                $sql = "SELECT * FROM attendee a INNER JOIN specialty s ON a.specialty_id = s.specialty_id WHERE id = :id";
+                $sql = "SELECT * FROM attendee a INNER JOIN specialty s ON a.specialty_id = s.specialty_id WHERE id = :id OR email = :email ;";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':id', $id);
+                $stmt->bindparam(':email' , $id);
                 $stmt->execute();
                 $result = $stmt->fetch();
                 return $result;
@@ -111,6 +112,23 @@
                 echo 'Error: ' . $e->getMessage();
            }
             
+        }
+
+        public function checkEmail($email) {
+            try {
+                $sql = "SELECT * FROM attendee WHERE email = :email ;";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':email', $email);
+                $stmt->execute();
+                $result = $stmt->fetch();
+                if($result > 0) {
+                    return true;
+                }else {
+                    return false;
+                }
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage(); 
+            }
         }
 
         public function deleteAttendee($id){
