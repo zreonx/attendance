@@ -15,6 +15,7 @@
     $email = $_POST['email'];
     $number = $_POST['contact'];
     $full_name = ucwords($fname . " " . $lname);
+    $status = "active";
 
     $orig_file = $_FILES['avatar']['tmp_name'];
     $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
@@ -22,7 +23,7 @@
     $destination = $target_dir . $number . "." .  $ext;
     move_uploaded_file($orig_file, $destination);
     
-     $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination);
+     $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination, $status);
    
      $specialty_name =  $crud->getSpecialtyById($specialty);
      $email_exit = $crud->checkEmail($email);

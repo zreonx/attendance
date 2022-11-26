@@ -8,10 +8,10 @@
             $this->db = $conn;
         }
 
-        public function registerMember($fname, $lname, $specialty, $dob, $email, $number, $avatar_path){
+        public function registerMember($fname, $lname, $specialty, $dob, $email, $number, $avatar_path, $status){
             try {
                 //query with placeholder
-                $active = "active";
+                
                 $sql = "INSERT INTO attendee (firstname, lastname, specialty_id, dateofbirth, email, contact, avatar_path, status) VALUES (:fname, :lname, :specialty, :dob, :email, :number, :avatar_path, :status)";
 
                 //prepare the statement
@@ -25,7 +25,7 @@
                 $stmt->bindparam(':email', $email);
                 $stmt->bindparam(':number', $number);
                 $stmt->bindparam(':avatar_path', $avatar_path);
-                $stmt->bindparam(':status', $active);
+                $stmt->bindparam(':status', $status);
 
                 //excecute the query
                 $stmt->execute();
