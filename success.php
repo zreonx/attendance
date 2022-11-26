@@ -16,7 +16,7 @@
     $number = $_POST['contact'];
     $full_name = ucwords($fname . " " . $lname);
     $status = "active";
-
+    
     $orig_file = $_FILES['avatar']['tmp_name'];
     $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
     $target_dir = 'images/uploads/';

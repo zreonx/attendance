@@ -50,9 +50,11 @@
                           <td align="center">
                             "<h2 style="font-family: Century Gothic; font-size: 25px;">  Hi <i> '. $full_name .'</i></h2>"
                           </td>
-                          <td>
-                          <p style="font-family: Century Gothic; font-size: 15px;"> '. $content . '<p>"
-                          </td>
+                        </tr>
+                        <tr>
+                        <td>
+                            <p style="font-family: Century Gothic; font-size: 15px;"> '. $content . '<p>"
+                        </td>
                         </tr>
                       </table>
                     </td>
