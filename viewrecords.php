@@ -31,6 +31,7 @@
                 <td><?php echo $r['firstname']; ?></td>
                 <td><?php echo $r['lastname']; ?></td>
                 <td><?php echo $r['name']; ?></td>
+                <td><?php echo $r['status']; ?></td>
                 <td>
                     <a href="view.php?id=<?php echo $r['id']; ?>" class="btn-design btn btn-success">View</a>
                     <button data-id="<?php echo $r['id']; ?>" type="button" class="btn-design btn btn-danger delete-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>

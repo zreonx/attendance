@@ -11,7 +11,8 @@
         public function registerMember($fname, $lname, $specialty, $dob, $email, $number, $avatar_path){
             try {
                 //query with placeholder
-                $sql = "INSERT INTO attendee (firstname, lastname, specialty_id, dateofbirth, email, contact, avatar_path) VALUES (:fname, :lname, :specialty, :dob, :email, :number, :avatar_path)";
+                $active = "active";
+                $sql = "INSERT INTO attendee (firstname, lastname, specialty_id, dateofbirth, email, contact, avatar_path, status) VALUES (:fname, :lname, :specialty, :dob, :email, :number, :avatar_path, :status)";
 
                 //prepare the statement
                 $stmt = $this->db->prepare($sql);
@@ -24,6 +25,7 @@
                 $stmt->bindparam(':email', $email);
                 $stmt->bindparam(':number', $number);
                 $stmt->bindparam(':avatar_path', $avatar_path);
+                $stmt->bindparam(':status', $active);
 
                 //excecute the query
                 $stmt->execute();
@@ -76,8 +78,8 @@
 
                 //inner join - joining data between two table that are in common, foreign key
                 //dual select
-                // $sql = "SELECT * FROM attendee, specialty WHERE attendee.specialty_id = specialty.specialty_id ";
-                $sql = "SELECT * FROM attendee a INNER JOIN specialty s ON a.specialty_id = s.specialty_id ORDER BY id;";
+                 $sql = "SELECT * FROM attendee, specialty WHERE attendee.specialty_id = specialty.specialty_id AND attendee.status = 'active' ";
+                //$sql = "SELECT * FROM attendee a INNER JOIN specialty s ON a.specialty_id = s.specialty_id WHERE a.status = active ORDER BY id ;";
                 //query specific sql
                 $result = $this->db->query($sql);
                 return $result;
