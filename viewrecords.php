@@ -18,8 +18,9 @@
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Specialty</th>
-            <th>Action</th>
             <th>Status</th>
+            <th>Action</th>
+            
         </tr>
         <?php
             while($r = $results->fetch(PDO::FETCH_ASSOC)){
