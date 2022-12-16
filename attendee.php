@@ -17,11 +17,8 @@
             <h5 class="card-title"><?php echo $r['firstname'] . " " . $r['lastname']; ?></h5>
             <p>
                 Specialty: <?php echo $r['name']; ?> <br>
-                Date of Birth: <?php echo $r['dateofbirth']; ?> <br>
-                Email: <?php echo $r['email']; ?> <br>
-                Contact: <?php echo $r['contact']; ?> <br>
             </p>
-            <a href="#" class="btn btn-primary">View Info</a>
+            <a href="view.php?id=<?php echo $r['id']; ?>" class="btn btn-dark">View Info</a>
         </div>
         </div>
     </div>

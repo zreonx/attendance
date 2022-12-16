@@ -55,9 +55,9 @@
             
         }
 
-        public function updateDetails($id, $fname, $lname, $specialty, $dob, $email, $number) {
+        public function updateDetails($id, $fname, $lname, $specialty, $dob, $email, $number,  $destination) {
             try {
-                $sql = "UPDATE attendee SET firstname = :fname , lastname = :lname , specialty_id = :specialty , dateofbirth = :dob , email = :email , contact = :number WHERE id = :id ";
+                $sql = "UPDATE attendee SET firstname = :fname , lastname = :lname , specialty_id = :specialty , dateofbirth = :dob , email = :email , contact = :number , avatar_path= :avatar WHERE id = :id ";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':id', $id);
                 $stmt->bindparam(':fname', $fname);
@@ -66,6 +66,7 @@
                 $stmt->bindparam(':dob', $dob);
                 $stmt->bindparam(':email', $email);
                 $stmt->bindparam(':number', $number);
+                $stmt->bindparam('avatar', $destination);
                 $stmt->execute();
                 return true;
             } catch (PDOException $e) {

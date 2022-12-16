@@ -17,11 +17,23 @@
     $full_name = ucwords($fname . " " . $lname);
     $status = "active";
     
-    $orig_file = $_FILES['avatar']['tmp_name'];
+    $tmpFile = $_FILES['avatar']['tmp_name'];
     $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
     $target_dir = 'images/uploads/';
     $destination = $target_dir . $number . "." .  $ext;
-    move_uploaded_file($orig_file, $destination);
+    move_uploaded_file($tmpFile, $destination);
+
+    // $result = move_uploaded_file($tmpFile, $destination);
+    // $orig_image = imagecreatefromjpeg($destination);
+    // $image_info = getimagesize($destination); 
+    // $width_orig  = $image_info[0]; // current width as found in image file
+    // $height_orig = $image_info[1]; // current height as found in image file
+    // $width = 1024; // new image width
+    // $height = 768; // new image height
+    // $destination_image = imagecreatetruecolor($width, $height);
+    // imagecopyresampled($destination_image, $orig_image, 0, 0, 0, 0, $width, $height, $width_orig, $height_orig);
+    // // This will just copy the new image over the original at the same filePath.
+    // imagejpeg($destination_image, $destination, 100);
     
      $isSuccess =  $crud->registerMember($fname, $lname, $specialty, $dob, $email, $number, $destination, $status);
    

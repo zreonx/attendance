@@ -19,10 +19,12 @@
     max-width: 100%;
 }
 
-.profile-image {
-    
-}
-
 .attendee {
     width: 220px;
+}
+
+
+.card-profile {
+    height: 200px !important;
+    width: 200px !important;
 }
